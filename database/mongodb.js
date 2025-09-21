@@ -5,7 +5,7 @@ if(!DB_URI) {
     throw new Error('DB_URI is not defined in environment variable inside .env.<development/production>.local file');
 }
 
-const conntectToDatabase = async () => {
+const connectToDatabase = async () => {
     try {
         await mongoose.connect(DB_URI);
 
@@ -16,4 +16,4 @@ const conntectToDatabase = async () => {
     }
 }
 
-export default conntectToDatabase;
+export default connectToDatabase;
