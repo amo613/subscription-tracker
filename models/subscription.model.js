@@ -14,7 +14,7 @@ const subscriptionSchema = new mongoose.Schema({
         min: [0, 'Price must be at least 0']
 
     },
-    curency: {
+    currency: {
         type: String,
         enum: ['USD', 'EUR', 'GBP', 'INR', 'AUD', 'CAD', 'SGD', 'JPY', 'CNY'],
         default: 'USD'
@@ -30,7 +30,7 @@ const subscriptionSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['active,cancelled,expired'],
+        enum: ['active','cancelled','expired'],
         default: 'active'
     },
     startDate: {
@@ -38,7 +38,7 @@ const subscriptionSchema = new mongoose.Schema({
         required: true,
         validate: {
             validator: (value) => value >= new Date(),
-                message: 'Start date must be today or in the future',
+                message: 'Start date must be today or in the future, check the time as well.',
             }
         },
     renewalDate: {
